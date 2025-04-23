@@ -1,0 +1,171 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "RPN_Calc",
+    "description": "<h2>RPN Calc</h2>\r\n<p>This is an elementary RPN Calculator running as a REST API. It works by adding numbers on to a stack and making \r\noperation to the last two numbers on the stack.</p> \r\n<p>For example to add 5 + 3 the operation sequence is:</p>\r\n<ol>\r\n <li>POST Push 5</li>\r\n <li>POST Push 3</li>\r\n <li>POST Operation Addition</li>\r\n</ol>\r\n<p>Expected output:</p>\r\n<ol>\r\n <li>From your choice of tools, test as many of the operations as possible.</li>\r\n <li>Share the test cases once completed.</li>\r\n <li>If time permits it, you are welcome to share any thoughts like concerns etc.</li>\r\n</ol>",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/RpnCalc/stack": {
+      "get": {
+        "tags": [
+          "RpnCalc"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "format": "double"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "format": "double"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "format": "double"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RpnCalc/push": {
+      "post": {
+        "tags": [
+          "RpnCalc"
+        ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/RpnCalc/pop": {
+      "post": {
+        "tags": [
+          "RpnCalc"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RpnCalc/operation": {
+      "post": {
+        "tags": [
+          "RpnCalc"
+        ],
+        "parameters": [
+          {
+            "name": "operationType",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/OperationType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RpnCalc": {
+      "delete": {
+        "tags": [
+          "RpnCalc"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "OperationType": {
+        "enum": [
+          "Addition",
+          "Subtract",
+          "Multiplication",
+          "Division"
+        ],
+        "type": "string"
+      }
+    }
+  }
+}
