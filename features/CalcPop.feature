@@ -32,3 +32,4 @@ Scenario: POP endpoint does not remove non-top values from calc stack
     # and it would be better to poke the devs on proper error handling,
     # but I'm adding it for negative testing purposes anyway
 Scenario: TODO POP returns error when called with empty stack
+    

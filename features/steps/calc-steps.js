@@ -1,4 +1,4 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+const { Before, Given, When, Then } = require("@cucumber/cucumber");
 const { spec, expect } = require("pactum");
 const assert = require('assert')
 
@@ -8,6 +8,12 @@ postPushEndpoint = "/api/RpnCalc/push";
 postPopEndpoint = "/api/RpnCalc/pop";
 postOperationEndpoint = "/api/RpnCalc/operation"
 deleteEndpoint = "/api/RpnCalc"
+
+//// BEFORE hooks
+
+Before(function(){
+    this.response = null;
+});
 
 
 //// GIVEN statements
@@ -51,6 +57,10 @@ Then("the response is successful", function (){
     expect(this.response).should.have.status(200);
 });
 
+Then("the response has status \"{double}\"", function(status){
+    expect(this.response).should.have.status(status);
+});
+
 Then("the response is value \"{double}\"", function(value){
     expect(this.response).should.have.body(value);
 });
@@ -62,7 +72,6 @@ Then("the response is a list with single value \"{double}\"", function (value){
 
 Then(/^the response is a list (containing|not containing) value \"([0-9]+)\"$/, function(containInput, value){
     resultsArr = this.response.body;
-    console.debug(resultsArr);
 
     assert(Array.isArray(resultsArr));
 
