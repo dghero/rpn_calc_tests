@@ -29,7 +29,8 @@ Scenario: POP endpoint does not remove non-top values from calc stack
 
 
     # Technically, this is an undocumented 500 internal server error,
-    # and it would be better to poke the devs on proper error handling,
-    # but I'm adding it for negative testing purposes anyway
-Scenario: TODO POP returns error when called with empty stack
-    
+    # and it would be better to poke the devs on proper error handling
+Scenario: POP returns error when called with empty stack
+    Given the calc stack is cleared
+    When I call POP
+    Then the response has status "500"
