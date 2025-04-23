@@ -85,9 +85,8 @@ Then(/^the response is a list (containing|not containing) value \"([0-9]+)\"$/, 
 ///// TODO: Read for multiple GET values. Find way to pass array? Use a table?
 /////       Would like to confirm exact order too
 
-Then("PENDING the response has values {double}", function (value){
+Then("PENDING the response is a list with values {double}", function (value){
     expectedBody = [value];
-    console.debug(expectedBody);
     expect(this.response).should.have.jsonMatch([value]);
     // expect(this.response).should.have.body(value);
 });
