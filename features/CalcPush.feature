@@ -16,6 +16,11 @@ Scenario: PUSH endpoint populates stack in correct order
     And I call GET STACK
     Then the response is successful
     And the response is a list with values
+        | value |
+        | 101   |
+        | 102   |
+        | 103   |
+        | 104   |
 
 Scenario: PUSH endpoint returns no value in response
     When I call PUSH with value "314159"

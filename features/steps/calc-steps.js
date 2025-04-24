@@ -24,6 +24,20 @@ Given("the calc stack is cleared", async function () {
         .expectStatus(200);
 });
 
+Given("the stack is populated with values", async function (dataTable){
+    /* Expects table of format:
+        | value |
+        | 1     |
+        | 2     |
+        ....
+    */
+    data = dataTable.rows();
+    for(i = 0; i < data.length, i++;){
+        this.response = await spec()
+            .post(baseUrl + postPushEndpoint + "?value=" + data[i][0])
+    }
+});
+
 //// WHEN statements
 
 When("I call GET STACK", async function(){
@@ -98,10 +112,21 @@ Then(/^the response is a list (containing|not containing) value \"([0-9]+)\"$/, 
 ///// TODO: Read for multiple GET values. Find way to pass array? Use a table?
 /////       Would like to confirm exact order too
 
-Then("PENDING the response is a list with values {double}", function (value){
-    expectedBody = [value];
-    expect(this.response).should.have.jsonMatch([value]);
-    // expect(this.response).should.have.body(value);
+Then("the response is a list with values", function (dataTable){
+    /* Expects table of format:
+        | value |
+        | 1     |
+        | 2     |
+        ....
+    */
+    data = dataTable.rows();
+    assert.equal(this.response.body.length, data.length);
+
+    for(i = 0; i < data.length, i++;){
+        console.debug(this.response.body[i]);
+        console.debug(data[i][0]);
+        assert.equal(this.response.body[i], data[i][0]);
+    }
 });
 
 
