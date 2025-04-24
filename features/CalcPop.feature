@@ -1,3 +1,4 @@
+@PopFeature
 Feature: Calc POP
 
 Scenario: POP endpoint returns last PUSHed value

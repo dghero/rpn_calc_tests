@@ -1,3 +1,4 @@
+@PushFeature
 Feature: Calc PUSH
 
 Scenario: PUSH endpoint populates empty stack with value

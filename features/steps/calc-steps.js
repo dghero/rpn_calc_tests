@@ -32,13 +32,16 @@ Given("the stack is populated with values", async function (dataTable){
         ....
     */
     data = dataTable.rows();
+    console.debug(data);
     for(i = 0; i < data.length, i++;){
         this.response = await spec()
             .post(baseUrl + postPushEndpoint + "?value=" + data[i][0])
+            .status(200);
     }
 });
 
 //// WHEN statements
+
 
 When("I call GET STACK", async function(){
     

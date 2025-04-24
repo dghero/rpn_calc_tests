@@ -1,3 +1,4 @@
+@StackFeature
 Feature: Calc STACK
 
 Scenario: STACK endpoint can return empty stack

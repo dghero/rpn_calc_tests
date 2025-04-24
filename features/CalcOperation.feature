@@ -1,10 +1,13 @@
+@OperationFeature
 Feature: Calc OPERATION
 
 Scenario Outline: OPERATION endpoint returns calculated value in response
     Given the calc stack is cleared
-    When I call PUSH with value "15"
-    And I call PUSH with value "5"
-    And I call OPERATION <operation>
+    And the stack is populated with values
+        | value |
+        | 15    |
+        | 5     |
+    When I call OPERATION <operation>
     Then the response is value "<result>"
 
     Examples:
