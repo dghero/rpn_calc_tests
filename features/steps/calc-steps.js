@@ -51,7 +51,6 @@ When("I call POP", async function(){
 });
 
 When(/^I call OPERATION (Addition|Subtract|Multiplication|Division)$/, async function (operation){
-    console.debug("Operation entered");
     this.response = await spec()
         .post(baseUrl + postOperationEndpoint + "?operationType=" + operation);
 })
