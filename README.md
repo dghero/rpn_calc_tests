@@ -9,6 +9,11 @@ npm install
 npm test
 ```
 
+To run a specific subset of tests, instead run the following after installation (tags can be found in the .feature files in ./features/):
+```
+npm test -- --tags @DesiredTag
+```
+
 Endpoints under test include:
 ```
 GET ​/api​/RpnCalc​/stack
