@@ -74,6 +74,11 @@ When(/^I call OPERATION (Addition|Subtract|Multiplication|Division)$/, async fun
         .post(baseUrl + postOperationEndpoint + "?operationType=" + operation);
 })
 
+When("I call DELETE", async function(){
+    this.response = await spec()
+        .delete(baseUrl + deleteEndpoint);
+});
+
 //// THEN statements
 
 Then("the response is successful", function (){
@@ -114,9 +119,6 @@ Then(/^the response is a list (containing|not containing) value \"([0-9]+)\"$/, 
     }
 });
 
-///// TODO: Read for multiple GET values. Find way to pass array? Use a table?
-/////       Would like to confirm exact order too
-
 Then("the response is a list with values", function (dataTable){
     /* Expects table of format:
         | value |
@@ -132,11 +134,9 @@ Then("the response is a list with values", function (dataTable){
     }
 });
 
-
 Then("the response is an empty list", function(){
     expect(this.response).should.have.jsonMatch([]);
 });
-
 
 Then("the response has content-length 0", function(){
     expect(this.response).should.have.headerContains("content-length", "0");
