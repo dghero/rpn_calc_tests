@@ -32,11 +32,13 @@ Given("the stack is populated with values", async function (dataTable){
         ....
     */
     data = dataTable.rows();
-    console.debug(data);
-    for(i = 0; i < data.length, i++;){
+    // console.debug(data[0][0]);
+    // console.debug(data[1][0]);
+    // console.debug(data.length);
+    for(i = 0; i < data.length; i++){
         this.response = await spec()
             .post(baseUrl + postPushEndpoint + "?value=" + data[i][0])
-            .status(200);
+            .expectStatus(200);
     }
 });
 
@@ -125,9 +127,7 @@ Then("the response is a list with values", function (dataTable){
     data = dataTable.rows();
     assert.equal(this.response.body.length, data.length);
 
-    for(i = 0; i < data.length, i++;){
-        console.debug(this.response.body[i]);
-        console.debug(data[i][0]);
+    for(i = 0; i < data.length; i++){
         assert.equal(this.response.body[i], data[i][0]);
     }
 });
