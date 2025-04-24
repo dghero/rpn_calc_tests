@@ -15,5 +15,7 @@ Scenario: STACK endpoint can return single-value stack
     And the response is a list with single value "2112"
 
 Scenario: TODO STACK endpoint can return all values after invalid push
+    Given you finish this scenario
 
 Scenario: TODO STACK endpoint can return all values after pop
+    Given you finish this scenario

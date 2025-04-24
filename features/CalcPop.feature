@@ -7,7 +7,6 @@ Scenario: POP endpoint returns last PUSHed value
     Then the response is successful
     And the response is value "143"
 
-
 Scenario: POP endpoint removes value from calc stack
     Given the calc stack is cleared
     When I call PUSH with value "11433"
