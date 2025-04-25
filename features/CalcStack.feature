@@ -1,14 +1,15 @@
 @StackFeature
 Feature: Calc STACK
 
-Scenario: STACK endpoint can return empty stack
+Background:
     Given the calc stack is cleared
+
+Scenario: STACK endpoint can return empty stack
     When I call GET STACK
     Then the response is successful
     Then the response is an empty list
 
 Scenario: STACK endpoint can return single-value stack
-    Given the calc stack is cleared
     When I call PUSH with value "2112"
     And I call GET STACK
     Then the response is successful

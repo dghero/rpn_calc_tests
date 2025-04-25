@@ -32,9 +32,6 @@ Given("the stack is populated with values", async function (dataTable){
         ....
     */
     data = dataTable.rows();
-    // console.debug(data[0][0]);
-    // console.debug(data[1][0]);
-    // console.debug(data.length);
     for(i = 0; i < data.length; i++){
         this.response = await spec()
             .post(baseUrl + postPushEndpoint + "?value=" + data[i][0])

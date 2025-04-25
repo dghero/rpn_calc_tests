@@ -1,15 +1,16 @@
 @PushFeature
 Feature: Calc PUSH
 
-Scenario: PUSH endpoint populates empty stack with value
+Background:
     Given the calc stack is cleared
+
+Scenario: PUSH endpoint populates empty stack with value
     When I call PUSH with value "24601"
     And I call GET STACK
     Then the response is successful
     And the response is a list with single value "24601"
 
 Scenario: PUSH endpoint populates stack in correct order
-    Given the calc stack is cleared
     When I call PUSH with value "101"
     When I call PUSH with value "102"
     When I call PUSH with value "103"
