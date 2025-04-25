@@ -4,6 +4,7 @@ Feature: Calc PUSH
 Background:
     Given the calc stack is cleared
 
+@smoke
 Scenario: PUSH endpoint populates empty stack with value
     Given the calc stack is cleared
     When I call PUSH with value "24601"

@@ -14,6 +14,7 @@ Scenario: POP endpoint returns last value from calc stack
     Then the response is successful
     And the response is value "143"
 
+@smoke
 Scenario: POP endpoint removes value from calc stack
     Given the stack is populated with values
         | value |

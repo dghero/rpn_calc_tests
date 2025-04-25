@@ -20,7 +20,7 @@ Scenario Outline: OPERATION endpoint returns calculated value in response
     | Multiplication | 75     |
     | Division       | 3      |
 
-
+@smoke
 Scenario Outline: OPERATION endpoint places calculated value on the stack
     Given the stack is populated with values
         | value |

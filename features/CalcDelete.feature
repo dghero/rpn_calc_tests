@@ -1,6 +1,7 @@
 @DeleteFeature
 Feature: Calc DELETE
 
+@smoke
 Scenario: Delete endpoint deletes all values
     Given the stack is populated with values
         | value |

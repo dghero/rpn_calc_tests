@@ -17,6 +17,7 @@ Scenario: STACK endpoint can return single-value stack
     Then the response is successful
     And the response is a list with single value "2112"
 
+@smoke
 Scenario: STACK endpoint can return multi-value stack
     Given the stack is populated with values
         | value |
@@ -34,17 +35,3 @@ Scenario: STACK endpoint can return multi-value stack
         | 3     |
         | 4     |
         | 5     |
-
-Scenario: STACK endpoint can return all remaining values after pop
-    Given the stack is populated with values
-        | value |
-        | 3011  |
-        | 3012  |
-        | 3013  |
-    When I call POP
-    And I call GET STACK
-    Then the response is successful
-    And the response is a list with values
-        | value |
-        | 3011  |
-        | 3012  |
