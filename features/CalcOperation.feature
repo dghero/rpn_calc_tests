@@ -10,7 +10,8 @@ Scenario Outline: OPERATION endpoint returns calculated value in response
         | 15    |
         | 5     |
     When I call OPERATION <operation>
-    Then the response is value "<result>"
+    Then the response is successful
+    And the response is value "<result>"
 
     Examples:
     | operation      | result |
@@ -84,8 +85,8 @@ Scenario Outline: OPERATION endpoint can calculate negative values
         | -15   |
         | -5    |
     When I call OPERATION <operation>
-    And I call GET STACK
-    Then the response is a list with single value "<result>"
+    Then the response is successful
+    And the response is value "<result>"
 
     Examples:
     | operation      | result |
@@ -101,8 +102,8 @@ Scenario Outline: OPERATION endpoint can calculate decimal values
         | 6.6   |
         | 3.3   |
     When I call OPERATION <operation>
-    And I call GET STACK
-    Then the response is a list with single value "<result>"
+    Then the response is successful
+    And the response is value "<result>"
 
     Examples:
     | operation      | result |
