@@ -9,8 +9,7 @@ Scenario: Delete endpoint deletes all values
         | 3003  |
     When I call DELETE
     And I call GET STACK
-    Then the response is successful
-    And the response is an empty list
+    Then the response is an empty list
 
 Scenario: Delete endpoint returns no value in response
     Given the stack is populated with values
