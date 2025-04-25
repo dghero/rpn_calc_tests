@@ -5,6 +5,7 @@ Background:
     Given the calc stack is cleared
 
 Scenario: PUSH endpoint populates empty stack with value
+    Given the calc stack is cleared
     When I call PUSH with value "24601"
     And I call GET STACK
     Then the response is successful
