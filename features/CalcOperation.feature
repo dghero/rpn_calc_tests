@@ -37,7 +37,7 @@ Scenario Outline: OPERATION endpoint places calculated value on the stack
     | Division       | 3      |
 
 
-Scenario Outline: OPERATION endpoint removes original values on the stack
+Scenario Outline: OPERATION endpoint removes original input values from the stack
     Given the stack is populated with values
         | value |
         | 15    |
@@ -53,3 +53,60 @@ Scenario Outline: OPERATION endpoint removes original values on the stack
     | Subtract       | 10     |
     | Multiplication | 75     |
     | Division       | 3      |
+
+
+Scenario Outline: OPERATION endpoint does not modify non-input values
+    Given the stack is populated with values
+        | value |
+        | 451   |
+        | 216   |
+        | 15    |
+        | 5     |
+    When I call OPERATION <operation>
+    And I call GET STACK
+    Then the response is a list with values
+        | value    |
+        | 451      |
+        | 216      |
+        | <result> |
+
+    Examples:
+    | operation      | result |
+    | Addition       | 20     |
+    | Subtract       | 10     |
+    | Multiplication | 75     |
+    | Division       | 3      |
+
+
+Scenario Outline: OPERATION endpoint can calculate negative values
+    Given the stack is populated with values
+        | value |
+        | -15   |
+        | -5    |
+    When I call OPERATION <operation>
+    And I call GET STACK
+    Then the response is a list with single value "<result>"
+
+    Examples:
+    | operation      | result |
+    | Addition       | -20    |
+    | Subtract       | -10    |
+    | Multiplication | 75     |
+    | Division       | 3      |
+
+
+Scenario Outline: OPERATION endpoint can calculate decimal values
+    Given the stack is populated with values
+        | value |
+        | 6.6   |
+        | 3.3   |
+    When I call OPERATION <operation>
+    And I call GET STACK
+    Then the response is a list with single value "<result>"
+
+    Examples:
+    | operation      | result |
+    | Addition       | 9.9    |
+    | Subtract       | 3.3    |
+    | Multiplication | 21.78  |
+    | Division       | 2      |

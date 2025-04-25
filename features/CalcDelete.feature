@@ -22,7 +22,7 @@ Scenario: Delete endpoint returns no value in response
     Then the response is successful
     And the response has content-length 0
 
-Scenario: Delete endpoint can be successfully called in empty stack
+Scenario: Delete endpoint can be successfully called on empty stack
     Given the calc stack is cleared
     When I call DELETE
     Then the response is successful

@@ -58,7 +58,8 @@ When("I call PUSH with value \"{double}\"", async function (value){
 When("PENDING: I call PUSH with invalid value \"{string}\"", async function (value){
     //Work out regex to ensure that value is actually invalid
     this.response = await spec()
-        .post(baseUrl + postPushEndpoint + "?value=" + value);
+        .post(baseUrl + postPushEndpoint + "?value=" + value)
+        .expectStatus(500);
 });
 
 When("I call POP", async function(){
