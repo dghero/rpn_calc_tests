@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/@cucumber/cucumber/bin/cucumber.js"
+    "test": "node ./node_modules/@cucumber/cucumber/bin/cucumber.js --publish > results.txt"
   },
   "keywords": [],
   "author": "",

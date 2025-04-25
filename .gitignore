@@ -1,2 +1,5 @@
 #Ignore node packages, these can be installed with npm
 node_modules/
+
+#No need to upload the results file to Github
+results.txt
