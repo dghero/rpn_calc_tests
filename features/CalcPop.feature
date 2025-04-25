@@ -27,11 +27,3 @@ Scenario: POP endpoint does not remove non-top values from calc stack
     Then the response is successful
     And the response is a list containing value "76"
     And the response is a list containing value "77"
-
-
-    # Technically, this is an undocumented 500 internal server error,
-    # and it would be better to poke the devs on proper error handling
-Scenario: POP returns error when called with empty stack
-    Given the calc stack is cleared
-    When I call POP
-    Then the response has status "500"

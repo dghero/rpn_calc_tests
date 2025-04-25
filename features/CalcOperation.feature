@@ -19,6 +19,7 @@ Scenario Outline: OPERATION endpoint returns calculated value in response
     | Multiplication | 75     |
     | Division       | 3      |
 
+
 Scenario Outline: OPERATION endpoint places calculated value on the stack
     Given the stack is populated with values
         | value |
@@ -34,6 +35,7 @@ Scenario Outline: OPERATION endpoint places calculated value on the stack
     | Subtract       | 10     |
     | Multiplication | 75     |
     | Division       | 3      |
+
 
 Scenario Outline: OPERATION endpoint removes original values on the stack
     Given the stack is populated with values

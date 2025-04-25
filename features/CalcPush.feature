@@ -29,6 +29,3 @@ Scenario: PUSH endpoint returns no value in response
     When I call PUSH with value "314159"
     Then the response is successful
     And the response has content-length 0
-
-Scenario: TODO PUSH with invalid value
-    Given you finish this scenario
