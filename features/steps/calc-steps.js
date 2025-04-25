@@ -110,7 +110,6 @@ Then("the response is value \"{double}\"", function(value){
 });
 
 Then("the response is a list with single value \"{double}\"", function (value){
-    expectedBody = [value];
     expect(this.response).should.have.jsonMatch([value]);
 });
 
